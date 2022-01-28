@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br " xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliste-se - Usuários</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/aos.css">
+</head>
+<body class="dashboard">
+
+<div class="sidebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 id="toggle" class="nav-toggle">
+                    <i class="fa fa-bars"></i>
+                </h1>
+            </div>
+            <div class="col-12">
+                <h1 class="logo-sidebar"><img src="/img/logo.png" alt=""></h1>
+            </div>
+        </div><!--row-->
+        <div class="row navigation">
+            <div class="col-12 nav-item">
+                <a href="/admin" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                    <span class="nav-title">
+                            Dashboard
+                        </span>
+                </a>
+            </div><!--nav-item-->
+            <div class="col-12 nav-item">
+                <a href="/admin/listar-soldados" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fas fa-list-alt"></i>
+                        </span>
+                    <span class="nav-title">
+                            Inscrições
+                        </span>
+                </a>
+            </div><!--nav-item-->
+            <div class="col-12 nav-item">
+                <a href="#" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                    <span class="nav-title">
+                            Comandos
+                        </span>
+                </a>
+            </div><!--nav-item-->
+            <div class="col-12 nav-item">
+                <a href="#" class="nav-link">
+                        <span class="nav-icon ac">
+                            <i class="fa fa-home"></i>
+                        </span>
+                    <span class="nav-title">
+                            Financeiro
+                        </span>
+                </a>
+            </div><!--nav-item-->
+            <div class="col-12 nav-item active">
+                <a href="/admin/listar-usuarios" class="nav-link">
+                        <span class="nav-icon active">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    <span class="nav-title">
+                            Usuários
+                        </span>
+                </a>
+            </div><!--nav-item-->
+
+        </div><!--row-->
+    </div>
+</div><!--sidebar-->
+<div class="topbar">
+    <div class="row top-menu">
+        <div class="col-12 col-md-1">
+                <span class="brasao">
+                    <img src="/img/brasao.png" alt="">
+                </span>
+        </div>
+        <div class="col-12 col-md-5">
+            <h1>Bem-vindo, <b th:text="${nomeLogado}"></b></h1>
+            <h2>Patente: <b th:text="${funcaoLogado}"></b></h2>
+            <a href="/login">Sair</a>
+        </div>
+    </div>
+</div><!--topbar-->
+<div class="dash-container" id="usuarios">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="formulario-container">
+                    <div class="msg-sucesso">
+                        <p th:text="${mensagem}"></p>
+                    </div>
+                    <h1 th:text="${titulo}"></h1>
+                        <form method="post" th:action="@{/admin/salvar-usuario}" th:object="${usuario}">
+                            <div th:if="${usuario}">
+                                <input id="id" type="hidden" name="id" placeholder="Nome..." th:value="${usuario?.id}">
+                            </div>
+                            <label for="nome">Nome:</label>
+                            <input id="nome" type="text" name="nome" placeholder="Nome..." th:value="${usuario?.nome}">
+                            <label for="nomeUsuario">Nome de Usuário:</label>
+                            <input id="nomeUsuario" type="text" name="nomeUsuario" placeholder="Nome de Usuário..." th:value="${usuario?.nomeUsuario}">
+                            <label for="senha">Senha:</label>
+                            <input id="senha" type="password" name="senha" placeholder="Senha...">
+                            <label for="funcao">Tipo:</label>
+                            <select id="funcao" name="funcao">
+                                <option th:each="funcao : ${funcoes}" th:value="${funcao.id}" th:text="${funcao.nome}" th:selected="${funcao.id} == ${usuario?.funcao?.id}"></option>
+                            </select>
+                            <input type="submit" value="Salvar">
+                        </form>
+                </div>
+            </div>
+
+        </div>
+    </div><!--container-->
+</div><!--dash-container-->
+
+
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/fontawesome.js"></script>
+<script src="/js/chart.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br " xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliste-se - Painel</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/aos.css">
+</head>
+<body class="dashboard">
+
+    <div class="sidebar">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 id="toggle" class="nav-toggle">
+                        <i class="fa fa-bars"></i>
+                    </h1>
+                </div>
+                <div class="col-12">
+                    <h1 class="logo-sidebar"><img src="/img/logo.png" alt=""></h1>
+                </div>
+            </div><!--row-->
+            <div class="row navigation">
+                <div class="col-12 nav-item active">
+                    <a href="/admin" class="nav-link">
+                        <span class="nav-icon active">
+                            <i class="fa fa-home"></i>
+                        </span>
+                        <span class="nav-title">
+                            Dashboard
+                        </span>
+                    </a>
+                </div><!--nav-item-->
+                <div class="col-12 nav-item">
+                    <a href="/admin/listar-soldados" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fas fa-list-alt"></i>
+                        </span>
+                        <span class="nav-title">
+                            Inscrições
+                        </span>
+                    </a>
+                </div><!--nav-item-->
+                <div class="col-12 nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                        <span class="nav-title">
+                            Comandos
+                        </span>
+                    </a>
+                </div><!--nav-item-->
+                <div class="col-12 nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon ac">
+                            <i class="fa fa-home"></i>
+                        </span>
+                        <span class="nav-title">
+                            Financeiro
+                        </span>
+                    </a>
+                </div><!--nav-item-->
+                <div class="col-12 nav-item">
+                    <a href="/admin/listar-usuarios" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <span class="nav-title">
+                            Usuários
+                        </span>
+                    </a>
+                </div><!--nav-item-->
+                
+            </div><!--row-->
+        </div>
+    </div><!--sidebar-->
+    <div class="topbar"> 
+        <div class="row top-menu">
+            <div class="col-12 col-md-1">
+                <span class="brasao">
+                    <img src="/img/brasao.png" alt="">
+                </span>
+            </div>
+            <div class="col-12 col-md-5">
+                <h1>Bem-vindo, <b th:text="${nomeLogado}"></b></h1>
+                <h2>Patente: <b th:text="${funcaoLogado}"></b></h2>
+                <a href="/logout">Sair</a>
+            </div>
+        </div>
+    </div><!--topbar-->
+    <div class="dash-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8">
+                    <h1 class="dash-title"><span><i class="fa fa-home"></i></span> Dashboard</h1>
+                </div>
+            </div><!--row-->
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="dash-card">
+                        <h1 class="dash-card-icon">
+                            <i class="fab fa-react"></i>
+                        </h1>
+                        <h2 class="dash-card-content">R$0,00</h2>
+                        <h3 class="dash-card-title">Receitas</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="dash-card">
+                        <h1 class="dash-card-icon">
+                            <i class="fab fa-react"></i>
+                        </h1>
+                        <h2 class="dash-card-content">R$0,00</h2>
+                        <h3 class="dash-card-title">Despesas</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="dash-card">
+                        <h1 class="dash-card-icon">
+                            <i class="fab fa-react"></i>
+                        </h1>
+                        <h2 class="dash-card-content" th:text="${totalSoldados}"></h2>
+                        <h3 class="dash-card-title">Inscrições</h3>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="dash-card">
+                        <h1 class="dash-card-icon">
+                            <i class="fab fa-react"></i>
+                        </h1>
+                        <h2 class="dash-card-content">22/04/2022</h2>
+                        <h3 class="dash-card-title">Próximo evento</h3>
+                    </div>
+                </div>
+            </div><!--row-->
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <canvas id="chart1" class="chart"></canvas>
+                </div>
+                <div class="col-12 col-md-6">
+                    <canvas id="chart2" class="chart"></canvas>
+                </div>
+              </div>
+        </div><!--container-->
+    </div><!--dash-container-->
+
+
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/fontawesome.js"></script>
+<script src="/js/chart.js"></script>
+<script src="/js/main.js"></script>
+<script>
+    chart1()
+    chart2()
+</script>
+</body>
+</html>

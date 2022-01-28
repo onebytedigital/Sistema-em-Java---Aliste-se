@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br " xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliste-se - Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/aos.css">
+</head>
+<body>
+<section class="login">
+    <div class="container">
+        <h1>
+            <img src="/img/logo.png" alt="">
+        </h1>
+        <form name="f" th:action="@{/login}" method="post">
+            <input type="text" name="username" th:text="${username}" id="username" placeholder="Usuario">
+            <input type="password" name="password" th:text="password" id="password" placeholder="Senha">
+            <input type="submit" value="Entrar">
+        </form>
+        <div th:if="${param.error}" class="erro">
+            Usuário ou senha incorretos! <i class="fa fa=times"></i>
+        </div>
+        <div th:if="${param.logout}" class="erro">
+            Você saiu do sistema <i class="fa fa=times"></i>
+        </div>
+    </div>
+</section>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/fontawesome.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

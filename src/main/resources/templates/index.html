@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br " xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliste-se - Acampamento Radical para Jovens</title>
+
+    <!--SEO-->
+    <meta name="description" content="Aliste-se - Acampamento Radical para Jovens">
+
+    <!--SMO-->
+    <meta property="og:title" content="Aliste-se - Acampamento Radical para Jovens">
+    <meta property="og:site_name" content="Aliste-se">
+    <meta property="og:description" content="Venha se alistar no exercito que irá mudar a sua vida!">
+    <meta property="og:url" content="https://www.alistese.com.br">
+    <meta property="og:image" content="img/smo.png">
+    <meta property="og:image:type" content="image/png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/aos.css">
+</head>
+<body class="home">
+    <div class="principal">
+        <h1 class="logo">
+            <img src="/img/logo-novo.png" alt="">
+        </h1>
+    </div>
+    <div class="btn-container">
+        <a class="btn-inscricao" href="#alistamento">
+            Quero me alistar!
+        </a>
+    </div>
+    <div id="alistamento" class="alistamento">
+        <div class="container">
+            <div class="row">
+                <h1>Alistamento</h1>
+            </div>
+            <div class="row">
+                <h2>Prezado Soldado, siga atentamente as instruções para concluir seu alistamento!</h2>
+                <p>1. O valor do seu alistamento é de R$100,00 podendo ser pago até 15 dias antes do encontro.</p>
+                <p>2. Após seu cadastro estar concluído, apareceça duas opções de pagamento, escolha a opção desejada</p>
+                <p>3. O pagamento pode ser realizado por Boleto, PIX ou no cartão em até 3x sem juros.</p>
+                <p>4. Entraremos em contato para tirar dúvidas e passar mais informações sobre o encontro</p>
+                <p>5. O Inscrito poderá fazer o cancelamento por arrependimento em até 7 dias após o inscrição/pagamento, com a devolução dos valores pagos. Fora dessa dada não terá direito a ressarcimento de valor algum, base do art 49 da defesa do consumidor.</p>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <form method="post" th:action="@{/salvar-soldado}">
+                        <div class="col-12 col-lg-5 px-1">
+                            <label for="nome">
+                                Nome:
+                            </label>
+                            <input id="nome" type="text" placeholder="Seu nome" name="nome" required>
+                        </div>
+                        <div class="col-12 col-lg-3 px-1">
+                            <label for="nascimento">
+                                Data de Nascimento:
+                            </label>
+                            <input id="nascimento" type="date" placeholder="Data de Nascimento" name="nascimento" required>
+                        </div>
+                        <div class="col-12 col-lg-2 px-1">
+                            <label for="rg">
+                                RG:
+                            </label>
+                            <input id="rg" type="text" placeholder="99.888.777-6" name="rg" required>
+                        </div>
+                        <div class="col-12 col-lg-2 px-1">
+                            <label for="cpf">
+                                CPF:
+                            </label>
+                            <input id="cpf" type="text" placeholder="999.888.777-66" name="cpf" required>
+                        </div>
+                        <div class="col-12 col-lg-4 px-1">
+                            <label for="rua">
+                                Logradouro(Rua, Avenida):
+                            </label>
+                            <input id="rua" type="text" placeholder="Rua" name="rua" required>
+                        </div>
+                        <div class="col-12 col-lg-1 px-1">
+                            <label for="numero">
+                                Nº:
+                            </label>
+                            <input id="numero" type="number" placeholder="Nº" name="numero" required>
+                        </div>
+                        <div class="col-12 col-lg-3 px-1">
+                            <label for="bairro">
+                                Bairro:
+                            </label>
+                            <input id="bairro" type="text" placeholder="Bairro" name="bairro" required>
+                        </div>
+                        <div class="col-12 col-lg-3 px-1">
+                            <label for="cidade">
+                                Cidade:
+                            </label>
+                            <input id="cidade" type="text" placeholder="Cidade" name="cidade" required>
+                        </div>
+                        <div class="col-12 col-lg-1 px-1">
+                            <label for="estado">
+                                Estado:
+                            </label>
+                            <select id="estado" name="estado" required>
+                                <option selected>--</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-lg-3 px-1">
+                            <label for="celular">
+                                Celular:
+                            </label>
+                            <input id="celular" type="text" placeholder="(99)99999-9999" name="celular" required>
+                        </div>
+                        <div class="col-12 col-lg-3 px-1">
+                            <label for="telefoneEmergencia">
+                                Telefone de Emergência:
+                            </label>
+                            <input id="telefoneEmergencia" type="text" placeholder="(99)99999-9999" name="telefoneEmergencia" required>
+                        </div>
+                        <div class="col-12 col-lg-3 px-1">
+                            <label for="nomeEmergencia">
+                                Nome do contato:
+                            </label>
+                            <input id="nomeEmergencia" type="text" placeholder="Nome do Contato" name="nomeEmergencia" required>
+                        </div>
+                        <div class="col-12 col-lg-3 px-1">
+                            <label for="email">
+                                E-mail:
+                            </label>
+                            <input id="email" type="email" placeholder="exemplo@abc.com.br" name="email" required>
+                        </div>
+                        <div class="col-12 col-lg-6 mx-auto px-1">
+                            <p class="error" th:text="${mensagem}"></p>
+                        </div>
+                        <div class="col-12 col-lg-5 mx-auto px-1">
+                            <input type="submit" value="Enviar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/fontawesome.js"></script>
+<script src="/js/chart.js"></script>
+<script src="/js/main.js"></script>
+<script>
+    chart1()
+    chart2()
+</script>
+</body>
+</html>

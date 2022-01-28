@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br " xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliste-se - Listar Soldados</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/grid.css">
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/aos.css">
+</head>
+<body class="dashboard">
+
+<div class="sidebar">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 id="toggle" class="nav-toggle">
+                    <i class="fa fa-bars"></i>
+                </h1>
+            </div>
+            <div class="col-12">
+                <h1 class="logo-sidebar"><img src="/img/logo.png" alt=""></h1>
+            </div>
+        </div><!--row-->
+        <div class="row navigation">
+            <div class="col-12 nav-item">
+                <a href="/admin" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                    <span class="nav-title">
+                            Dashboard
+                        </span>
+                </a>
+            </div><!--nav-item-->
+            <div class="col-12 nav-item active">
+                <a href="/admin/listar-soldados" class="nav-link">
+                        <span class="nav-icon active">
+                            <i class="fas fa-list-alt"></i>
+                        </span>
+                    <span class="nav-title">
+                            Inscrições
+                        </span>
+                </a>
+            </div><!--nav-item-->
+            <div class="col-12 nav-item">
+                <a href="#" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                    <span class="nav-title">
+                            Comandos
+                        </span>
+                </a>
+            </div><!--nav-item-->
+            <div class="col-12 nav-item">
+                <a href="#" class="nav-link">
+                        <span class="nav-icon ac">
+                            <i class="fa fa-home"></i>
+                        </span>
+                    <span class="nav-title">
+                            Financeiro
+                        </span>
+                </a>
+            </div><!--nav-item-->
+            <div class="col-12 nav-item">
+                <a href="/admin/listar-usuarios" class="nav-link">
+                        <span class="nav-icon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    <span class="nav-title">
+                            Usuários
+                        </span>
+                </a>
+            </div><!--nav-item-->
+
+        </div><!--row-->
+    </div>
+</div><!--sidebar-->
+<div class="topbar">
+    <div class="row top-menu">
+        <div class="col-12 col-md-1">
+                <span class="brasao">
+                    <img src="/img/brasao.png" alt="">
+                </span>
+        </div>
+        <div class="col-12 col-md-5">
+            <h1>Bem-vindo, <b th:text="${nomeLogado}"></b></h1>
+            <h2>Patente: <b th:text="${funcaoLogado}"></b></h2>
+            <a href="/login">Sair</a>
+        </div>
+    </div>
+</div><!--topbar-->
+<div class="dash-container" id="usuarios">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <h1 class="dash-title"><span><i class="fa fa-user"></i></span> Listar Soldados</h1>
+                <p class="underline"></p>
+            </div>
+        </div><!--row-->
+        <div class="row">
+            <div class="col-12">
+                <div class="table-container">
+                    <h1 class="dash-card-icon">
+                        <i class="fa fa-users"></i>
+                    </h1>
+                    <table class="table">
+                        <tr>
+                            <th style="min-width: 50px;">Id</th>
+                            <th style="min-width: 500px;">Nome</th>
+                            <th style="min-width: 250px;">Celular</th>
+                            <th style="min-width:250px;">Opções</th>
+                        </tr>
+                        <tr class="tr-hover" th:each="soldado : ${soldados}">
+                            <td style="min-width: 50px;" th:text="${soldado.id}"></td>
+                            <td style="min-width: 500px;" th:text="${soldado.nome}"></td>
+                            <td style="min-width: 250px;" th:text="${soldado.celular}"></td>
+                            <td style="min-width: 250px;">
+                                    <span>
+                                        <a href="#" class="btn btn-editar"><i class="fa fa-pen"></i></a>
+                                    <a href="#" class="btn btn-excluir"><i class="fa fa-trash"></i></a>
+                                    </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div><!--container-->
+</div><!--dash-container-->
+
+
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/fontawesome.js"></script>
+<script src="/js/chart.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
