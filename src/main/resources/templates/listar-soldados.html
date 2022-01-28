@@ -112,12 +112,14 @@
                             <th style="min-width: 50px;">Id</th>
                             <th style="min-width: 500px;">Nome</th>
                             <th style="min-width: 250px;">Celular</th>
+                            <th style="width: 90px;">Pago?</th>
                             <th style="min-width:250px;">Opções</th>
                         </tr>
                         <tr class="tr-hover" th:each="soldado : ${soldados}">
                             <td style="min-width: 50px;" th:text="${soldado.id}"></td>
                             <td style="min-width: 500px;" th:text="${soldado.nome}"></td>
                             <td style="min-width: 250px;" th:text="${soldado.celular}"></td>
+                            <td style="width: 90px;" th:text="${soldado.pago}"></td>
                             <td style="min-width: 250px;">
                                     <span>
                                         <a href="#" class="btn btn-editar"><i class="fa fa-pen"></i></a>
